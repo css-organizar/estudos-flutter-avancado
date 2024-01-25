@@ -4,4 +4,4 @@ Repositório de Exemplos Avançados Utilizando Flutter
 
 ## Exemplos
 
-- [x] [Flutter Channel](https://github.com/claudneysessa/estudos-flutter-avancado/tree/master/flutter_channel)
+- [x] [Flutter Channel](https://github.com/claudneysessa/estudos-flutter-avancado/tree/master/flutter_channel) : Trabalhando com Channels de Comunicação com o Nativo (Android)
