@@ -1,4 +1,4 @@
-# estudos-flutter-avancado
+# Estudos Avançados de Flutter
 
 Repositório de Exemplos Avançados Utilizando Flutter
 
