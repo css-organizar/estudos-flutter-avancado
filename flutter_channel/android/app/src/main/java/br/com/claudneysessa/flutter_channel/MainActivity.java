@@ -28,6 +28,7 @@ public class MainActivity extends FlutterActivity {
 
         new ExemploMethodChannel(context, flutterEngine);
         new ExemploEventChannel(context, flutterEngine);
+        new ExemploBasicMessageChannel(context, flutterEngine);
 
     }
 

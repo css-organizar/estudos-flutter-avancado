@@ -38,3 +38,9 @@ Foram adicionados 2 eventos para alterar o tipo de retorno do Stream, sendo eles
 - alterarEventoNome 2: Altera o nome do evento para e o tipo do evento entre 1 e 2
 
 O objetivo deste exemplo foi executar o serviço nativo que fica em execução e alterar o tipo de retorno do Stream mantendo a conexão com o serviço.
+
+### BasicMessageChannel
+
+O BasicMessageChannel é um canal de comunicação que permite a chamada de funções nativas que retornam um Stream semelhante a uma função com retorno do tipo Future.
+
+No exemplo de utilização do BasicMessageChannel, foi criado um serviço que retorna uma imagem da pasta assets do android e tudo isto após aguardar 10 segundos programados na função.
