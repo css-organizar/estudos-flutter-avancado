@@ -14,9 +14,10 @@ class ApplicationWidgetState extends State<ApplicationWidget> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Exemplo de Utilização do Method Channel',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.deepPurple,
       ),
       home: const HomeWidget(),
     );

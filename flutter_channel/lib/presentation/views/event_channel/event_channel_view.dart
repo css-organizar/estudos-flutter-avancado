@@ -13,7 +13,7 @@ class EventChannelWidget extends StatefulWidget {
 
 class EventChannelWidgetState extends State<EventChannelWidget> {
   var exemploEventChannelService = ExemploEventChannelService();
-  final TextEditingController _controller = TextEditingController(text: 'Evento');
+  final TextEditingController _controller = TextEditingController(text: 'Nome do Evento');
 
   late StreamSubscription<dynamic> streamSubscription;
   String eventData = '';
@@ -58,7 +58,7 @@ class EventChannelWidgetState extends State<EventChannelWidget> {
                   decoration: const InputDecoration(
                     hintText: '',
                     isDense: true,
-                    label: Text('Parâmetro'),
+                    label: Text('Parâmetro (Nome do Evento)'),
                     floatingLabelBehavior: FloatingLabelBehavior.always,
                     border: OutlineInputBorder(),
                   ),
@@ -79,7 +79,7 @@ class EventChannelWidgetState extends State<EventChannelWidget> {
                     await exemploEventChannelService.alterarEvento();
                     setState(() {});
                   },
-                  child: const Text('alterarEvento'),
+                  child: const Text('Alterar Tipo do Evento'),
                 ),
               ),
             ),
@@ -95,7 +95,7 @@ class EventChannelWidgetState extends State<EventChannelWidget> {
                     );
                     setState(() {});
                   },
-                  child: const Text('alterarEventoNome'),
+                  child: const Text('Alterar TIpo e Nome do Evento'),
                 ),
               ),
             ),

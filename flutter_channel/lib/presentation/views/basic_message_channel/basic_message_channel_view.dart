@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import '../../../infrastructure/services/channels/exemplo_basic_message_channel_service.dart';
 
 class BasicMessageChannelWidget extends StatefulWidget {
-  const BasicMessageChannelWidget({super.key});
+  BasicMessageChannelWidget({super.key});
 
   @override
   State<BasicMessageChannelWidget> createState() => _BasicMessageChannelWidgetState();
@@ -17,13 +17,13 @@ class _BasicMessageChannelWidgetState extends State<BasicMessageChannelWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Basic Channel Demo'),
+        title: Text('Basic Channel Demo'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Flexible(
+            Expanded(
               child: FractionallySizedBox(
                 widthFactor: 1,
                 heightFactor: 0.6,
@@ -31,7 +31,10 @@ class _BasicMessageChannelWidgetState extends State<BasicMessageChannelWidget> {
                   future: imageData,
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.none) {
-                      return const Placeholder();
+                      return Padding(
+                        padding: EdgeInsets.all(20),
+                        child: Placeholder(),
+                      );
                     } else if (snapshot.hasError) {
                       return Center(
                         child: Text(
@@ -39,28 +42,46 @@ class _BasicMessageChannelWidgetState extends State<BasicMessageChannelWidget> {
                         ),
                       );
                     } else if (snapshot.connectionState == ConnectionState.done) {
-                      return Image.memory(
-                        snapshot.data!,
-                        fit: BoxFit.fill,
+                      return Padding(
+                        padding: EdgeInsets.all(20),
+                        child: Image.memory(
+                          snapshot.data!,
+                          fit: BoxFit.fill,
+                        ),
                       );
                     }
-                    return const CircularProgressIndicator();
+                    return Padding(
+                      padding: EdgeInsets.all(90),
+                      child: Column(
+                        children: [
+                          CircularProgressIndicator(),
+                          SizedBox(
+                            height: 16,
+                          ),
+                          Text(
+                            'Loading Image...',
+                          ),
+                        ],
+                      ),
+                    );
                   },
                 ),
               ),
             ),
-            const SizedBox(
-              height: 16,
-            ),
-            FilledButton(
-              onPressed: imageData != null
-                  ? null
-                  : () {
-                      setState(() {
-                        imageData = ExemploBasicMessageChannelService.getImage();
-                      });
-                    },
-              child: const Text('Get Image'),
+            Container(
+              padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
+              child: SizedBox(
+                height: 50,
+                width: 200,
+                child: ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      imageData = ExemploBasicMessageChannelService.getImage();
+                    });
+                  },
+                  child: Text('Get Image'),
+                ),
+              ),
             )
           ],
         ),

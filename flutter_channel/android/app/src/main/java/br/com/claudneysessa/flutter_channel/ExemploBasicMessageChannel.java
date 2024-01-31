@@ -22,7 +22,8 @@ import java.util.HashMap;
 
 public class ExemploBasicMessageChannel {
 
-  private static final String CHANNEL = "br.com.claudneysessa/ExemploBasicMessageChannel";
+  private static final String CHANNEL =
+    "br.com.claudneysessa/ExemploBasicMessageChannel";
 
   private Handler handler;
 
@@ -30,6 +31,10 @@ public class ExemploBasicMessageChannel {
     Context context,
     FlutterEngine flutterEngine
   ) {
+
+    CustomLogger logger = new CustomLogger();
+
+    logger.info("Criando o Channel");
 
     ExemploBasicMessageChannel outerInstance = this;
 
@@ -39,51 +44,71 @@ public class ExemploBasicMessageChannel {
       StandardMessageCodec.INSTANCE
     )
       .setMessageHandler(
-        new BasicMessageChannel.MessageHandler<Object>() {
 
+        new BasicMessageChannel.MessageHandler<Object>() {
           @Override
           public void onMessage(
             Object message,
             BasicMessageChannel.Reply<Object> reply
           ) {
 
+            logger.info("Criando o Channel");
+            logger.error("Criando o Channel");
+            logger.warning("Criando o Channel");
+            logger.alert("Criando o Channel");
+            logger.log("Criando o Channel");
+            logger.printCustomMsgBox("Criando o Channel", "info", CHANNEL);
+
             HashMap map = (HashMap) message;
 
             System.out.println(message);
 
-            String methodName = (String) map.get("method");
-            String param = (String) map.get("param");
+            logger.info("Funcao: " + map.get("funcaoNome"));
 
-            if ("getImage".equals(methodName)) {
-              try {
-                outerInstance.handler = new Handler(Looper.getMainLooper());
+            String funcaoNome = (String) map.get("funcaoNome");
+            String funcaoParametro = (String) map.get("funcaoParametro");
 
-                InputStream inputStream = context.getAssets().open(param);
+            switch (funcaoNome) {
+              case "obterImagemAndroidAssets":
 
-                byte[] imageBytes = new byte[inputStream.available()];
+                logger.info("Executando funcao obterImagemAndroidAssets");
 
-                inputStream.read(imageBytes);
+                try {
+                  outerInstance.handler = new Handler(Looper.getMainLooper());
 
-                outerInstance.handler.postDelayed(
-                  () -> {
-                    reply.reply(imageBytes);
-                  },
-                  10000
-                );
+                  InputStream inputStream = context
+                    .getAssets()
+                    .open(funcaoParametro);
 
+                  byte[] imageBytes = new byte[inputStream.available()];
 
-              } catch (IOException e) {
-                e.printStackTrace();
-              }
+                  inputStream.read(imageBytes);
 
+                  outerInstance.handler.postDelayed(
+                    () -> {
+
+                      logger.info("Enviando imagem para o Flutter");
+
+                      reply.reply(imageBytes);
+
+                    },
+                    10000
+                  );
+
+                } catch (IOException e) {
+
+                  logger.error("Erro ao obter imagem");
+
+                  e.printStackTrace();
+
+                  reply.reply(null);
+
+                }
+                break;
             }
 
           }
-
         }
-
       );
-
   }
-
 }

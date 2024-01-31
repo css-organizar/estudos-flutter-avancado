@@ -17,78 +17,150 @@ class HomeWidgetState extends State<HomeWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter Channel'),
+        title: const Text('Flutter Method Channel'),
         centerTitle: true,
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SizedBox(
-                height: 50,
-                width: 300,
-                child: ElevatedButton(
-                  onPressed: () async {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const MethodChannelWidget()),
-                    );
-                  },
-                  child: const Text('Method Channel'),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  height: 80,
+                  width: 300,
+                  child: ElevatedButton(
+                    onPressed: () async {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const MethodChannelWidget()),
+                      );
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'Method Channel',
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                        const Text(
+                          'Fluxo do App para o Nativo',
+                          style: TextStyle(
+                            fontSize: 14,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SizedBox(
-                height: 50,
-                width: 300,
-                child: ElevatedButton(
-                  onPressed: () async {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const MethodChannelParameterWidget()),
-                    );
-                  },
-                  child: const Text('Method Channel with param'),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  height: 80,
+                  width: 300,
+                  child: ElevatedButton(
+                    onPressed: () async {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const MethodChannelParameterWidget()),
+                      );
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'Method Channel com Parâmetro',
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                        const Text(
+                          'Fluxo do App para o Nativo',
+                          style: TextStyle(
+                            fontSize: 14,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SizedBox(
-                height: 50,
-                width: 300,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const EventChannelWidget()),
-                    );
-                  },
-                  child: const Text('Event Channel'),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  height: 80,
+                  width: 300,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const EventChannelWidget()),
+                      );
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'Event Channel',
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                        const Text(
+                          'Fluxo do Nativo para o App',
+                          style: TextStyle(
+                            fontSize: 14,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SizedBox(
-                height: 50,
-                width: 300,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const BasicMessageChannelWidget()),
-                    );
-                  },
-                  child: const Text('Basic Message Channel'),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  height: 80,
+                  width: 300,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => BasicMessageChannelWidget()),
+                      );
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'Basic Message Channel',
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                        const Text(
+                          'Fluxo Bidirecional',
+                          style: TextStyle(
+                            fontSize: 14,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
