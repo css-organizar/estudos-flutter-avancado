@@ -5,7 +5,7 @@ linter:
 
     avoid_print: false
 
-    prefer_single_quotes: true
+    prefer_single_quotes: false
 
     prefer_const_constructors: false
     prefer_const_constructors_in_immutables: false
